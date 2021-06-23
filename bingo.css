@@ -14,6 +14,19 @@ text-align: center;
     margin: 10px auto;
 }
 
+#speedTimer {
+    display: block;
+    width:fit-content;
+    border: 3px solid #cc0000;
+    border-radius: 5px 5px;
+    color: #cc0000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    padding: 5px 15px;
+    font-size: 1.5rem;
+}
+
 p{
     display: block;
     height: 10px;
@@ -51,10 +64,11 @@ button {
     margin-left: auto;
     margin-right: auto;
 }
-#ball  {
+.ballButton  {
     border: 2px solid #cc0000;
     background-color: #cc0000;
     color: #ffffcc;
+    display: inline-block;
 }
 #bolas{
     text-align: center;

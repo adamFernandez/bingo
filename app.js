@@ -6,7 +6,8 @@ let inner = [];
 let innerArray = document.getElementById("innerArray");
 let bolasFuera = document.getElementById("bolasFuera");
 
-for (i=1; i<=30;i++) {
+
+for (i=1; i<=90 ;i++) {
   inner.push(i);
 }
 //inner.splice(inner[0],1])
@@ -21,6 +22,85 @@ for (i=1;i<=inner.length;i++) {
         list.innerHTML += `<li id=\"${i}\">${i}</li>`;
     }
 }
+
+let interval;
+const buttonBall = document.getElementById("ball");
+
+const stopBolas = () => {
+  clearInterval(interval);
+  buttonBall.innerText = "Saca Bola";
+
+}
+const speedUp = () => {
+  return speed = speed -= 500;
+}
+
+const speedDown = () => {
+  return speed = speed += 500;
+}
+
+const minus = document.getElementById("minus");
+const plus = document.getElementById("plus");
+let speed = 1000;
+const resetButton = document.getElementById("reset");
+const speedTimer = document.getElementById("speedTimer");
+speedTimer.innerText = 0;
+let seconds = 0;
+
+const resetGame = () => {
+  let list = Array.from(inner);
+  list.forEach((el) => { document.getElementById(el).style.border = "2p solid #000000"; });
+  bolaEnJuego.innerText = "00";
+}
+
+resetButton.onclick = () => {
+  console.log("game reset");
+  resetGame();
+}
+
+minus.onclick = () => {
+  speed < 5000 ?
+  (
+    speedDown(),
+    clearInterval(interval),
+    interval = setInterval(function() { ball(); }, speed),
+    seconds += +0.5,
+    speedTimer.innerText = seconds + " s",
+    console.log(speedTimer.innerText,speed)
+  ) 
+  : speedTimer.innerText = "Minimum speed";
+}
+plus.onclick = () => {
+  speed > 500 ? 
+  (
+    speedUp(),
+    clearInterval(interval),
+    interval = setInterval(function() { ball(); }, speed),
+    seconds -= +0.5,
+    speedTimer.innerText = parseFloat(seconds) + " s",
+    console.log(speedTimer.innerText, speed)
+  ) 
+  : speedTimer.innerText = "Maximum speed";
+
+}
+
+const sacaBolas = (speed) => {
+  for (let i = 0; i < inner.length; i++){
+    clearInterval(interval);
+    interval = setInterval(function() { ball(); }, speed);
+  }
+}
+
+buttonBall.onclick = function(){
+  buttonBall.innerText === "Saca Bola" ?
+        (
+          sacaBolas(speed),
+          this.innerText = "Stop Bola",
+          speedTimer.innerText = 1
+        )
+        : stopBolas();
+}
+
 
 const  ball = () => {
     if (inner.length > 0){
@@ -59,17 +139,28 @@ const numOrBlank = () => {
 
 
 const line = () => {
+    
     let blank = 0;
+    let nOB = 0;
     let ul = create('ul','gameCard');
     for (let i=1; i <= 9; i++){
       let n = rand(i * 10, (i * 10)- 9);      
       let li = create('li',`li${i}`);
-      if ((numOrBlank()== 1)&& (blank <= 3)){
+      if ((numOrBlank()=== 1)&& (blank <= 3)){
+        // try not to add more than 2 blanks per line
+        // let prevI = i - 1;
+        // if(nOB === 1 && i === prevI ){
+        //   console.log('do Nothing', nOB);
+        //   nOB = 0;
+        // } else {
           li.innerHTML = "00";
           li.style.color = "#ffffff";
           ul.appendChild(li);
           blank++;
+          //nOB++;
           continue;
+        // }
+          
       } else {
         if( n < 10){
             if(!cardLine.includes(n)) { 
@@ -95,7 +186,7 @@ const line = () => {
     }
     
     gameCard.appendChild(ul);
-    
+    console.log(cardLine.length);
 }
 
 const carton = (lines = 3) => {
@@ -106,7 +197,11 @@ const carton = (lines = 3) => {
     for (let i = 1; i<= lines; i++){
         line();
     }   
-    cards.forEach( (c)=> {c.style.marginBottom = 5;});
+    if (cardLine.length === 40){
+      cardLine = [];
+    }
+    
+    gameCard.style.marginBottom = "10px";
     //gameCard.appendChild(div);
 }
 
