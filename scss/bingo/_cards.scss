@@ -1,0 +1,68 @@
+#gameCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px solid white;
+  font-size: clamp(1.2rem, 2.5vw, 5rem);
+  padding: 1.5vh;
+  width:fit-content;
+  margin: 1px auto;  
+}
+
+#gameCard ul {
+  margin: 0;
+  padding-top: 2px;
+}
+#gameCard li {
+  background-color: #ffffff;
+  display: inline-block;
+  border-radius: 0;
+  margin: 0 3px;
+}
+.blankLi {
+  color: lightblue;
+  background-color: lightblue;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+}
+.singleCard {
+  background-color: $blue;
+  width: fit-content;
+  padding: 5px;
+  min-width:380px;
+}
+.cardButtonContainer {
+  margin-left: 10px;
+  margin-top: 8px;
+  button {
+    font-size: clamp(0.8rem, 2vw, 4rem);
+  }
+  .resetCardButton{
+
+  }
+
+  .lineCardButton{
+
+  }
+
+  .bingoCardButton{
+
+  }
+
+}
+
+
+.cardContainer + .cardContainer {
+  margin-top: 10px;
+}
+.matchedNumber {
+  background-color: $cream !important;
+  border: 2px solid $red-400;
+  border-radius: 50% !important;
+}
+

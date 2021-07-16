@@ -1,0 +1,41 @@
+#app {
+  font-size: clamp(1.2rem, 2.5vw, 5rem);  
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //game board numbers
+  ul {
+    margin-top: 5px;
+    padding: 1.5vh;
+    border : 3px solid $red;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+  }  
+}
+
+// card numbers
+ul {
+  margin-top: 5px;
+  padding: 3px;
+}
+li {
+  list-style-type: none;
+  margin: 2px;
+  border: 2px solid white;
+  border-radius: 50% 50%;
+  padding: 3px;
+}
+
+// number in play
+.ballOut {
+  border: 2px solid $red;
+  border-radius: 50px;
+  background-color: $cream;
+}
+
+.ballReset{
+  border: 2px solid #ffffff; 
+  border-radius: 50px; 
+  background-color: #ffffff;
+}

@@ -1,0 +1,89 @@
+.buttons {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+button {
+  padding: 5px 15px;
+  border: 2px solid $blue;
+  border-radius: 50px 50px;
+  background-image: linear-gradient(45deg,$blue-400,$blue,$blue-400);
+  color: white;
+  font: bold 1.2rem Verdana;
+  font-size: clamp(1.3rem, 2.5vw, 5rem);
+  display: block;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    // border: 3px solid $red;    
+    color: white;
+    transform: scale(1.05);
+    //transition: transform 250ms ease-in;
+  }
+}
+#reset, #carton{
+  border: 2px solid $blue;
+  border-radius: 50px 50px;
+  background-image: linear-gradient(45deg,$blue-400,$blue,$blue-400);
+  color: white;
+}
+
+.ballButton  {
+  border: 2px solid $red;
+  //background-color: white;
+  color: white;
+  background-image: linear-gradient(45deg,$red-400,$red,$red-400);
+  display: inline-block;
+  &:hover {
+    // border: 3px solid $red;    
+    color: white;
+    transform: scale(1.05);
+    //transition: transform 250ms ease-in;
+  }
+}
+
+#speedTimer {
+  display: block;
+  width:fit-content;
+  border: 3px solid $red;
+  border-radius: 5px 5px;
+  color: $red;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  padding: 5px 15px;
+  font-size: clamp(1.3rem, 2.5vw, 5rem);
+}
+
+// Ball Number selected
+#bolas{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+span {
+  position: absolute;
+  background: white;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: animate 1s linear infinite;
+}
+
+@keyframes animate
+{
+  0%
+  {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100%
+  {
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+  }
+}
