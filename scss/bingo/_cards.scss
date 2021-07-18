@@ -4,7 +4,7 @@
   justify-content: center;
   flex-direction: column;
   border: 3px solid white;
-  font-size: clamp(1.2rem, 2.5vw, 5rem);
+  //font-size: clamp(1.2rem, 2.5vw, 5rem);
   padding: 1.5vh;
   width:fit-content;
   margin: 1px auto;  
@@ -35,12 +35,15 @@
   width: fit-content;
   padding: 5px;
   min-width:380px;
+  li {
+    cursor:url(https://fontawesome.com/v5.15/icons/grin-hearts),pointer;
+  }
 }
 .cardButtonContainer {
   margin-left: 10px;
   margin-top: 8px;
   button {
-    font-size: clamp(0.8rem, 2vw, 4rem);
+    //font-size: clamp(0.8rem, 2vw, 4rem);
   }
   .resetCardButton{
 
@@ -62,7 +65,27 @@
 }
 .matchedNumber {
   background-color: $cream !important;
-  border: 2px solid $red-400;
-  border-radius: 50% !important;
+  // border: 2px solid $red-400 !important;
+  // border-radius: 50% !important;
+  position:relative;
+  z-index: 1;
+  
+}
+
+.matchedNumber::before {
+  position: absolute;
+
+  top: -3px;
+  left: -1.7px;
+  font-family: "Font Awesome 5 Free"; 
+  color: $red-400;
+  font-weight: 400; 
+  font-size: 1.8em;
+  content: "\f5b8"; // 5b8 smile beam; 118 smile; 584 grin hearts
+  
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
